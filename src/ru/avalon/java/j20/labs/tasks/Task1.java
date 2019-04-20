@@ -25,9 +25,22 @@ public class Task1 implements Task {
     @Override
     public void run() {
         int[] array = arrayFactory.getInstance(20);
-        int min = Numbers.min(array);
-        int max = Numbers.max(array);
-        double avg = Numbers.avg(array);
+        
+        Integer[] wrapped;
+        wrapped = intWraper(array);
+        double min = Numbers.min(wrapped);
+        double max = Numbers.max(wrapped);
+        double avg = Numbers.avg(wrapped);
+    }
+        private static Integer[] intWraper(int[] array){
+            Integer[] wrap = new Integer[array.length];
+            for (int i = 0; i < array.length; i++){
+                wrap[i] = array[i];
+            
+            }
+        return wrap;
+        }
+        
         /*
          * TODO(Студент): Выполните задание №1
          *
@@ -55,4 +68,3 @@ public class Task1 implements Task {
          *    выполнения задания.
          */
     }
-}
